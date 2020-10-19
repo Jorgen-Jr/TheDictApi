@@ -4,7 +4,7 @@
 
 ### Usage
 
-You can use it by sending get requests to `https://thedictapp.herokuapp.com/thesaurus/{word}`, `https://ndefinitionbot.herokuapp.com/urbandictionary/{word}` and `https://ndefinitionbot.herokuapp.com/priberam/{word}` to get the definition in json format.
+You can use it by sending get requests to `https://thedictapi.herokuapp.com/thesaurus/{word}`, `https://thedictapi.herokuapp.com/urbandictionary/{word}` and `https://thedictapi.herokuapp.com/priberam/{word}` to get the definition in json format.
 
 ### Options
 
