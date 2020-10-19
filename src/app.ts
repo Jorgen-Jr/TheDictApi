@@ -1,6 +1,6 @@
 import bodyParser from "body-parser";
 import cors from "cors";
-import express from "express";
+import express, { Request, Response } from "express";
 
 const router = express.Router();
 
@@ -31,12 +31,12 @@ if (process.env.NODE_ENV !== "production") {
   }
 }
 
-router.get("/", (_, res) => {
+router.get("/", (_: Request, res: Response) => {
   res.json({ message: "I'm working hooman!" });
 });
 
 //Use thesaurus
-router.get("/thesaurus/:word", async (req, res) => {
+router.get("/thesaurus/:word", async (req: Request, res: Response) => {
   console.log("Getting a thesaurus definition.");
   const { word } = req.params;
 
@@ -46,7 +46,7 @@ router.get("/thesaurus/:word", async (req, res) => {
 });
 
 //Use Urban Dictionary
-router.get("/urbandictionary/:word", async (req, res) => {
+router.get("/urbandictionary/:word", async (req: Request, res: Response) => {
   console.log("Getting a Urban Dictionary definition.");
   const { word } = req.params;
 
@@ -56,7 +56,7 @@ router.get("/urbandictionary/:word", async (req, res) => {
 });
 
 //Use Priberam
-router.get("/priberam/:word", async (req, res) => {
+router.get("/priberam/:word", async (req: Request, res: Response) => {
   console.log("Getting a Priberam definition.");
   const { word } = req.params;
 
