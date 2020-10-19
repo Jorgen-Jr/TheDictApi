@@ -26,6 +26,10 @@ module.exports = {
 
         let index = 0;
 
+        if (def_panel.length <= 0) {
+          return null;
+        }
+
         while (index < def_panel.length) {
           const def = def_panel[index];
 
