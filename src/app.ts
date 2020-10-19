@@ -1,0 +1,65 @@
+import cors from "cors";
+import express from "express";
+
+const router = express.Router();
+
+//Import all the controller
+const ThesaurusScrapper = require("./controllers/ThesaurusScrapper");
+const UrbanDictionaryScrapper = require("./controllers/UrbanDictionaryScrapper");
+const PriberamScrapper = require("./controllers/PriberamScrapper");
+
+const app = express();
+
+//Allow cors access
+app.use(cors());
+
+//Carregar as variáveis de enviromnent.
+if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV === "test") {
+    require("dotenv").config({
+      path: ".env.test",
+    });
+  } else {
+    require("dotenv").config({
+      path: ".env",
+    });
+  }
+}
+
+router.get("/", (_, res) => {
+  res.json({ message: "I'm working hooman!" });
+});
+
+//Use thesaurus
+router.get("/thesaurus/:word", async (req, res) => {
+  console.log("Getting a thesaurus definition.");
+  const { word } = req.params;
+
+  const response = await ThesaurusScrapper.getWordDefinition(word);
+
+  return res.send(response);
+});
+
+//Use Urban Dictionary
+router.get("/urbandictionary/:word", async (req, res) => {
+  console.log("Getting a Urban Dictionary definition.");
+  const { word } = req.params;
+
+  const response = await UrbanDictionaryScrapper.getWordDefinition(word);
+
+  return res.send(response);
+});
+
+//Use Priberam
+router.get("/priberam/:word", async (req, res) => {
+  console.log("Getting a Priberam definition.");
+  const { word } = req.params;
+
+  const response = await PriberamScrapper.getWordDefinition(word);
+
+  return res.send(response);
+});
+
+app.use("", router);
+
+export default app;
