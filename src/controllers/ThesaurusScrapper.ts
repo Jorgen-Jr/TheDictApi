@@ -25,7 +25,7 @@ module.exports = {
           .toUpperCase();
 
         //Returns word definition
-        const first_definition = $(".css-1fj93w9", html)[0];
+        const first_definition = $(".e16867sm0", html)[0];
 
         await $("section", first_definition).map(
           async (index: number, definition_element: any) => {
@@ -39,10 +39,9 @@ module.exports = {
 
               await definition_element.children.forEach(
                 async (definition_index: number) => {
-                  $(".default-content > div", definition_index).map(
+                  $(".e1hk9ate4 > div", definition_index).map(
                     (_: any, def: any) => {
                       let index = def.attribs.value;
-
                       let definition = [];
 
                       definition = $.text($("span", def));
