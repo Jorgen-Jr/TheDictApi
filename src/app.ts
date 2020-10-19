@@ -1,3 +1,4 @@
+import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";
 
@@ -12,6 +13,10 @@ const app = express();
 
 //Allow cors access
 app.use(cors());
+
+//Allow json requests.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //Carregar as variáveis de enviromnent.
 if (process.env.NODE_ENV !== "production") {
