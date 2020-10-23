@@ -1,8 +1,9 @@
 {
-  "name": "ndefinitionbot",
+  "name": "thedictapi",
   "version": "1.0.0",
-  "description": "Bot for telegram.",
+  "description": "Dictionary api-rest.",
   "main": "dist/server.js",
+  "private": true,
   "scripts": {
     "build-ts": "tsc",
     "postinstall": "npm run build-ts",
@@ -11,8 +12,6 @@
     "watch": "tsc -w",
     "dev": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deployhomolog": "cp /home/jorge-n/Documentos/workspace-react/nDefinitionBot/nDefinitionBot/src/ ~/Documentos/workspace-react/nDefinitionBot/nDefinitionBot/package.json /home/jorge-n/Documentos/Projetos/nTelegram/nDefinitionBot -r",
-    "postdeployhomolog": "sudo docker container restart nDefinitionBot"
   },
   "author": "Jorge Antônio da Silva Nascimento Junior",
   "license": "ISC",
