@@ -1,7 +1,7 @@
-name: test-typescript
+name: type-check
 on: [push]
 jobs:
-  check-bats-version:
+  type-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
