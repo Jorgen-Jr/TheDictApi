@@ -37,8 +37,8 @@ router.get("/", (_: Request, res: Response) => {
 
 //Use thesaurus
 router.get("/thesaurus/:word", async (req: Request, res: Response) => {
-  console.log("Getting a thesaurus definition.");
   const { word } = req.params;
+  console.log("Getting a thesaurus definition: " + word);
 
   const response = await ThesaurusScrapper.getWordDefinition(word);
 
@@ -47,8 +47,8 @@ router.get("/thesaurus/:word", async (req: Request, res: Response) => {
 
 //Use Urban Dictionary
 router.get("/urbandictionary/:word", async (req: Request, res: Response) => {
-  console.log("Getting a Urban Dictionary definition.");
   const { word } = req.params;
+  console.log("Getting a Urban Dictionary definition: " + word);
 
   const response = await UrbanDictionaryScrapper.getWordDefinition(word);
 
@@ -57,8 +57,8 @@ router.get("/urbandictionary/:word", async (req: Request, res: Response) => {
 
 //Use Priberam
 router.get("/priberam/:word", async (req: Request, res: Response) => {
-  console.log("Getting a Priberam definition.");
   const { word } = req.params;
+  console.log("Getting a Priberam definition: " + word);
 
   const response = await PriberamScrapper.getWordDefinition(word);
 

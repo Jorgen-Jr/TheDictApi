@@ -33,8 +33,6 @@ module.exports = {
         while (index < def_panel.length) {
           const def = def_panel[index];
 
-          console.log(index + 1 + " de " + def_panel.length);
-
           definitions[index] = {
             word: await $(".word", def).text(),
             definition: await $(".meaning", def).text(),
