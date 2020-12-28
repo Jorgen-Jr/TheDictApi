@@ -60,7 +60,7 @@ exports.handler = async event => {
         })
         .catch((error) => {
             console.log(error);
-            return { error, word, url };
+            return { word, url, ...error };
         });
 
     return {
