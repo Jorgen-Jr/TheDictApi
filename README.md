@@ -1,5 +1,7 @@
 # TheDictApi
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/21b938bf-5732-43f6-803c-85c563b5c16e/deploy-status)](https://app.netlify.com/sites/thedictapi/deploys)
+
 > This api is capable of tell a word's meaning with the help of [Cheerio](https://cheerio.js.org/).
 
 ### Usage
