@@ -4,6 +4,15 @@ exports.handler = async event => {
 
     const word = event.queryStringParameters.word || 'word'
 
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Max-Age': '2592000',
+        'Access-Control-Allow-Credentials': 'true',
+    };
+
     const response = await fetch(url + word)
         .then(async (response) => {
             const html = await response.text();
@@ -55,6 +64,8 @@ exports.handler = async event => {
     return {
 
         statusCode: 200,
+
+        headers: headers,
 
         body: response,
 
