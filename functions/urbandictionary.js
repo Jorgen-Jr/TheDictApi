@@ -1,6 +1,7 @@
-import fetch from 'node-fetch';
 
 exports.handler = async event => {
+
+    import fetch from 'node-fetch';
 
     const word = event.queryStringParameters.word || 'word'
 
