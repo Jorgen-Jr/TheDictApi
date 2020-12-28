@@ -16,7 +16,7 @@ exports.handler = async event => {
         'Access-Control-Allow-Credentials': 'true',
     };
 
-    const result = await fetch(url + word)
+    const response = await fetch(url + word)
         .then(async (response) => {
             const html = await response.text();
 
