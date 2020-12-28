@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const $ = require("cheerio");
 
+const url = "https://www.urbandictionary.com/define.php?term=";
+
 exports.handler = async event => {
 
     const word = event.queryStringParameters.word || 'word'
@@ -13,8 +15,6 @@ exports.handler = async event => {
         'Access-Control-Max-Age': '2592000',
         'Access-Control-Allow-Credentials': 'true',
     };
-
-    const url = "https://www.urbandictionary.com/define.php?term=";
 
     const response = await fetch(url + word)
         .then(async (response) => {
