@@ -67,7 +67,7 @@ exports.handler = async event => {
 
         headers: headers,
 
-        body: response,
+        body: JSON.stringify(response),
 
     }
 
