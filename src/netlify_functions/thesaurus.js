@@ -1,10 +1,10 @@
-const UrbanDictionaryScrapper = require('./../src/controllers/UrbanDictionaryScrapper');
+import ThesaurusScrapper from '../controllers/ThesaurusScrapper'
 
 exports.handler = async event => {
 
     const word = event.queryStringParameters.word || 'word'
 
-    const response = await UrbanDictionaryScrapper.getWordDefinition(word);
+    const response = await ThesaurusScrapper.getWordDefinition(word);
 
     return {
 

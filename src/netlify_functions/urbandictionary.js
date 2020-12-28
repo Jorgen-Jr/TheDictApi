@@ -1,4 +1,4 @@
-import UrbanDictionaryScrapper from './../src/controllers/UrbanDictionaryScrapper';
+import UrbanDictionaryScrapper from '../controllers/UrbanDictionaryScrapper';
 
 exports.handler = async event => {
 
