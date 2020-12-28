@@ -13,6 +13,8 @@ exports.handler = async event => {
         'Access-Control-Allow-Credentials': 'true',
     };
 
+    const url = "https://www.urbandictionary.com/define.php?term=";
+
     const response = await fetch(url + word)
         .then(async (response) => {
             const html = await response.text();
