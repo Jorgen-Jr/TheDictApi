@@ -61,7 +61,7 @@ exports.handler = async event => {
         })
         .catch((error) => {
             console.log(error);
-            return error;
+            return false;
         });
 
     return {
