@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "thedictapi",
   "version": "1.0.0",
   "description": "Dictionary api-rest.",
