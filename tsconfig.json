@@ -26,10 +26,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "typeRoots": [
+      "./custom_typings",
+      "./node_modules/@types"
+    ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "./src/**/*.test.ts"
   ],
   "include": [
     "./src/**/*.tsx",
