@@ -13,7 +13,11 @@ exports.handler = async event => {
         'Access-Control-Allow-Credentials': 'true',
     };
 
-    const response = await DicioController.default.get(word);
+    const response = await DicioController.default.get(word)
+        .catch((error) => {
+            console.log(error);
+            return false;
+        });
 
     return {
 

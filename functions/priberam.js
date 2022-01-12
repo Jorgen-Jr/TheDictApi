@@ -1,11 +1,9 @@
-const fetch = require("node-fetch");
-const $ = require("cheerio");
-
-const url = "https://dicionario.priberam.org/";
+const PriberamScrapper = require('../dist/controllers/PriberamScrapper');
 
 exports.handler = async event => {
 
-    const word = event.queryStringParameters.word || 'word'
+    const word = event.queryStringParameters.word || 'word';
+    const simplified = event.queryStringParameters.simplified || 'true';
 
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -15,33 +13,7 @@ exports.handler = async event => {
         'Access-Control-Max-Age': '2592000',
         'Access-Control-Allow-Credentials': 'true',
     };
-
-    const response = await fetch(url + word)
-        .then(async (response) => {
-            const html = await response.text();
-
-            let definition = {
-                word,
-                definition: [],
-                source: url + word,
-            };
-
-            //Returns word with top definition
-            const def_card = await $("#resultados", html);
-
-            definition.word = word;
-
-            await $(".def", def_card).map(async (index, def) => {
-                const text = $(await def.children).text();
-
-                definition.definition.push({
-                    index,
-                    definition: text,
-                });
-            });
-
-            return definition;
-        })
+    const response = PriberamScrapper.getWordDefinition(word, simplified)
         .catch((error) => {
             console.log(error);
             return false;

@@ -48,9 +48,11 @@ router.get("/thesaurus/:word", async (req: Request, res: Response) => {
 //Use Urban Dictionary
 router.get("/urbandictionary/:word", async (req: Request, res: Response) => {
   const { word } = req.params;
+  const { simplified } = req.query;
+
   console.log("Getting a Urban Dictionary definition: " + word);
 
-  const response = await UrbanDictionaryScrapper.getWordDefinition(word);
+  const response = await UrbanDictionaryScrapper.getWordDefinition(word, simplified);
 
   return res.send(response);
 });
@@ -58,9 +60,11 @@ router.get("/urbandictionary/:word", async (req: Request, res: Response) => {
 //Use Priberam
 router.get("/priberam/:word", async (req: Request, res: Response) => {
   const { word } = req.params;
+  const { simplified } = req.query;
+
   console.log("Getting a Priberam definition: " + word);
 
-  const response = await PriberamScrapper.getWordDefinition(word);
+  const response = await PriberamScrapper.getWordDefinition(word, simplified);
 
   return res.send(response);
 });

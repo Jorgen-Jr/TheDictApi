@@ -1,8 +1,16 @@
 export type Definition = {
+  id?: String;
   word: string;
-  definition: Object[];
+  definition: String[];
   source: string;
-  synonyms?: string[];
-  examples?: string[];
-  antonyms?: string[];
+  example?: string[];
+  synonym?: string[];
+  antonym?: string[];
+  html?: HTML;
+};
+
+type HTML = {
+  id?: String;
+  definition: String | null;
+  example?: String;
 };
