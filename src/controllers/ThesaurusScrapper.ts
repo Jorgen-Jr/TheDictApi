@@ -20,65 +20,63 @@ module.exports = {
         definition.source = url + word;
 
         //Returns the found word
-        definition.word = await $(".entry-headword > div > h1", html)
-          .text()
-          .toUpperCase();
+        definition.word = await $(".entry-headword > div > h1", html).text().toUpperCase();
 
         //Returns word definition
-        const first_definition = $(".e16867sm0", html)[0];
+        // const first_definition = $(".e16867sm0", html)[0];
 
-        await $("section", first_definition).map(
-          async (index: number, definition_element: any) => {
-            // Skip the first element, since it's a header for informations about...
-            if (index !== 0) {
-              let category = $.text(await $("h3", definition_element));
+        // await $("section", first_definition).map(
+        //   async (index: number, definition_element: any) => {
+        //     // Skip the first element, since it's a header for informations about...
+        //     if (index !== 0) {
+        //       let category = $.text(await $("h3", definition_element));
 
-              let return_def: Object = {};
+        //       let return_def: Object = {};
 
-              let return_cat_definition: Object[] = [];
+        //       let return_cat_definition: Object[] = [];
 
-              await definition_element.children.forEach(
-                async (definition_index: number) => {
-                  $(".e1hk9ate4 > div", definition_index).map(
-                    (_: any, def: any) => {
-                      let index = def.attribs.value;
-                      let definition = [];
+        //       await definition_element.children.forEach(
+        //         async (definition_index: number) => {
+        //           $(".e1hk9ate4 > div", definition_index).map(
+        //             (_: any, def: any) => {
+        //               let index = def.attribs.value;
+        //               let definition = [];
 
-                      definition = $.text($("span", def));
+        //               definition = $.text($("span", def));
 
-                      return_cat_definition.push({
-                        index,
-                        definition,
-                      });
-                    }
-                  );
+        //               return_cat_definition.push({
+        //                 index,
+        //                 definition,
+        //               });
+        //             }
+        //           );
 
-                  $(".expandable-content > div", definition_index).map(
-                    (_: any, def: any) => {
-                      let index = def.attribs.value;
+        //           $(".expandable-content > div", definition_index).map(
+        //             (_: any, def: any) => {
+        //               let index = def.attribs.value;
 
-                      let definition = [];
+        //               let definition = [];
 
-                      definition = $.text($("span", def));
+        //               definition = $.text($("span", def));
 
-                      return_cat_definition.push({
-                        index,
-                        definition,
-                      });
-                    }
-                  );
+        //               return_cat_definition.push({
+        //                 index,
+        //                 definition,
+        //               });
+        //             }
+        //           );
 
-                  return_def = {
-                    category,
-                    definitions: return_cat_definition,
-                  };
-                }
-              );
+        //           return_def = {
+        //             category,
+        //             definitions: return_cat_definition,
+        //           };
+        //         }
+        //       );
 
-              await definition.definition.push(return_def);
-            }
-          }
-        );
+        //       await definition.definition.push(return_def);
+        //     }
+        //   }
+        // );
 
         return definition;
       })
