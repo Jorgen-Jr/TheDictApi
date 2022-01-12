@@ -1,4 +1,4 @@
-const UrbanDictionaryScrapper = require('../src/controllers/UrbanDictionaryScrapper');
+const UrbanDictionaryScrapper = require('../dist/controllers/UrbanDictionaryScrapper');
 
 exports.handler = async event => {
 

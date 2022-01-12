@@ -1,4 +1,4 @@
-const ThesaurusScrapper = require('../src/controllers/ThesaurusScrapper');
+const ThesaurusScrapper = require('../dist/controllers/ThesaurusScrapper');
 
 exports.handler = async event => {
 

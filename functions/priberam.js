@@ -1,4 +1,4 @@
-const PriberamScrapper = require('../src/controllers/PriberamScrapper');
+const PriberamScrapper = require('../dist/controllers/PriberamScrapper');
 
 exports.handler = async event => {
 
