@@ -11,6 +11,6 @@ export type Definition = {
 
 type HTML = {
   id?: String;
-  definition: String;
-  example: String;
+  definition: String | null;
+  example?: String;
 };
